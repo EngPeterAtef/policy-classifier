@@ -1,0 +1,8 @@
+# Ranges, not pins, so that Python 3.10 to 3.13 all resolve.
+fastapi>=0.110,<1
+uvicorn>=0.29,<1
+pydantic>=2.6,<3
+httpx>=0.27,<1
+PyYAML>=6,<7
+python-dotenv>=1,<2
+pytest>=8

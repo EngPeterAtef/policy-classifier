@@ -1,0 +1,20 @@
+# secrets
+.env
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# web
+web/node_modules/
+web/dist/
+
+# answers of an eval run that has not finished
+.eval_progress.json
+
+# editors and OS
+.DS_Store
+.idea/
+.vscode/

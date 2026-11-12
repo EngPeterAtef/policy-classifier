@@ -1,0 +1,87 @@
+/* Plain and legible. The aim is only that verdicts are easy to tell apart. */
+
+:root {
+  --ink: #1c2330;
+  --muted: #5d6675;
+  --line: #d9dee6;
+  --paper: #ffffff;
+  --page: #f4f6f9;
+  --accent: #2456c7;
+  --allow: #17794a;
+  --allow-bg: #e6f4ec;
+  --violation: #b3291f;
+  --violation-bg: #fbe9e7;
+  --undecided: #8a5a00;
+  --undecided-bg: #fdf1d6;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.page { max-width: 1180px; margin: 0 auto; padding: 20px 16px 60px; }
+h1 { font-size: 22px; margin: 0 0 2px; }
+h2 { font-size: 18px; margin: 6px 0 8px; }
+h3 { font-size: 15px; margin: 18px 0 6px; }
+.card > h3:first-child { margin-top: 0; }
+p { margin: 8px 0; }
+code, .mono { font-family: var(--mono); font-size: 13px; }
+code { background: #eceff4; padding: 1px 5px; border-radius: 4px; }
+.muted { color: var(--muted); }
+.small { font-size: 13px; }
+.label { font-size: 12px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+
+.header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; margin-bottom: 12px; }
+.mode { display: flex; flex-direction: column; padding: 8px 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--paper); font-size: 13px; }
+.mode-on { border-color: #b9cdf5; background: #eef3fe; }
+.mode-off, .banner { border: 1px solid #ecd596; background: var(--undecided-bg); }
+.banner { padding: 10px 14px; border-radius: 8px; }
+
+.tabs { display: flex; gap: 4px; flex-wrap: wrap; border-bottom: 1px solid var(--line); margin: 14px 0 16px; }
+.tab { border: 0; background: none; padding: 9px 14px; font: inherit; color: var(--muted); cursor: pointer; border-bottom: 3px solid transparent; }
+.tab-active { color: var(--ink); font-weight: 600; border-bottom-color: var(--accent); }
+
+.columns { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+@media (max-width: 860px) { .columns { grid-template-columns: minmax(0, 1fr); } }
+.card { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; margin-bottom: 16px; overflow-x: auto; }
+.hidden-part { border-style: dashed; background: #fbfbfd; }
+
+.field { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
+select, textarea, button { font: inherit; }
+select, textarea { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); color: var(--ink); }
+textarea { font-family: var(--mono); font-size: 13px; resize: vertical; }
+.buttons { display: flex; gap: 8px; flex-wrap: wrap; }
+button { padding: 8px 14px; border-radius: 6px; border: 1px solid var(--line); background: var(--paper); cursor: pointer; }
+button.primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+button:disabled { opacity: 0.6; cursor: default; }
+.error { color: var(--violation); background: var(--violation-bg); padding: 8px 10px; border-radius: 6px; }
+
+.badge { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 13px; font-weight: 700; }
+.badge-allow { color: var(--allow); background: var(--allow-bg); }
+.badge-violation { color: var(--violation); background: var(--violation-bg); }
+.badge-undecided { color: var(--undecided); background: var(--undecided-bg); }
+.verdict-line { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 4px 0 8px; }
+.action { font-size: 13px; font-weight: 600; padding: 2px 8px; border-radius: 6px; border: 1px solid var(--line); }
+.action-block { color: var(--violation); border-color: #e8b7b1; }
+.action-allow { color: var(--allow); border-color: #a9d5bd; }
+.agree, .disagree { padding: 8px 10px; border-radius: 6px; }
+.agree { background: var(--allow-bg); }
+.disagree { background: var(--violation-bg); }
+.wrong { color: var(--violation); }
+
+table { border-collapse: collapse; width: 100%; }
+th, td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--muted); }
+td.indent { padding-left: 28px; color: var(--muted); }
+table.rows tbody tr { cursor: pointer; }
+table.rows tbody tr:hover { background: #f1f4fa; }
+table.rows td:nth-child(-n + 5) { white-space: nowrap; }
+.row-wrong { background: var(--violation-bg); }
+.markdown ul { margin: 6px 0; padding-left: 20px; }
+.markdown li { margin: 4px 0; }
